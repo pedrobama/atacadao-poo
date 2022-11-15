@@ -1,11 +1,8 @@
 
 import prompt from 'prompt-sync';
-import { Empresa } from './Empresa'
 import { Fornecedor } from './Fornecedor';
 
-let empresa: Empresa = new Empresa();
-// console.log("empresa: >>", empresa);
-let fornecedor: Fornecedor = new Fornecedor("Fornecedor1", "98738938217/0001", "aishdiuhs", "19827387182");
+let fornecedor: Fornecedor = new Fornecedor("Fornecedor1", "xxxxxxxxxxx/0001", "Andrade Neves, 1543", "(53)30274310");
 
 let teclado = prompt();
 let escolha: number = 0;
@@ -16,6 +13,7 @@ while (escolha != 9) {
     console.log(`2. Listar Fornecedores`)
     console.log(`3. Cadastrar novo Atacadista`)
     console.log(`4. Cadastrar nova Venda`)
+    console.log(`5. Listar Status`)
     console.log(`9. Sair`)
 
     escolha = +teclado(`Escolha uma opção: `)
@@ -25,14 +23,15 @@ while (escolha != 9) {
             let user: string = teclado(`Digite o nome de usuário: `);
             let password: number = +teclado(`Digite a senha: `);
             
-            fornecedor.loginF(user, password);
+            console.log(
+             fornecedor.loginF(user, password));
             break;
         case 2:
             // empresa.listar();
            console.log(fornecedor.listar());
             break;
-        case 4:
-      // empresa.novoAtacadista();     
+        case 5:
+       fornecedor.status()
       break;    
         case 9:
         default:

@@ -1,26 +1,40 @@
 import { Empresa } from "./Empresa";
 
-
 export class Fornecedor extends Empresa{
   
-    private _segmento: string;
-    private _produtos: string;
-    
-  
-    constructor(nome: string, cnpj:string, endereco: string, telefone: string) {
-      super();
-      
-      this._segmento = "";
-      this._produtos = "";
-      
+    segmento: string;
+    produtos: string;
+
+    constructor(nome: string, cnpj: string, endereco: string, telefone: string) {
+      super(nome, cnpj, endereco, telefone);
+      this.nome = nome;
+      this.cnpj = cnpj;
+      this.endereco = endereco;
+      this.telefone = telefone;
+      this.segmento = "Alimentício";
+      this.produtos = "Morango, Melão";
     }
 
-
-  loginF(user: string, password: number) : void {
+  public loginF(user: string, password: number) : string {
     if(user === "Fornecedor1" && password === 4321){
-      console.log(`Sucess!`);
+      return (`Sucess!`);
   }else{
-      console.log(`Usuário ou senha incorretos!`) 
+      return(`Usuário ou senha incorretos!`) 
   }}
+
+  public status() : void {
+    
+    console.log("Segmento: ", this.segmento);
+    console.log("Produto: ", this.produtos);
+    
+    
+  }
+  listar(): string {
+    return (
+      `===== Listar Fornecedores =====\n|Nome: ${this.nome}${"\n|CNPJ: " + this.cnpj}${"\n|Endereço: " + this.endereco}${`\n|Telefone: ${this.telefone}`}\n===============================`
+    );
+  }
+
+  
   }
   

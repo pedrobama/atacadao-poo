@@ -3,7 +3,7 @@ import { Empresa } from "./Empresa";
 export class Fornecedor extends Empresa{
   
     segmento: string;
-    produtos: string;
+
 
     constructor(nome: string, cnpj: string, endereco: string, telefone: string) {
       super(nome, cnpj, endereco, telefone);
@@ -12,7 +12,7 @@ export class Fornecedor extends Empresa{
       this.endereco = endereco;
       this.telefone = telefone;
       this.segmento = "Alimentício";
-      this.produtos = "Morango, Melão";
+
     }
 
   public loginF(user: string, password: number) : string {
@@ -25,16 +25,16 @@ export class Fornecedor extends Empresa{
   public status() : void {
     
     console.log("Segmento: ", this.segmento);
-    console.log("Produto: ", this.produtos);
+
     
     
   }
   listar(): string {
     return (
-      `===== Listar Fornecedores =====\n|Nome: ${this.nome}${"\n|CNPJ: " + this.cnpj}${"\n|Endereço: " + this.endereco}${`\n|Telefone: ${this.telefone}`}\n===============================`
-    );
+      `===== Listar Fornecedores =====\n|Nome: ${this.nome}${"\n|CNPJ: " + this.cnpj}${"\n|Endereço: " + this.endereco}${"\n|Telefone: " + this.telefone}${`\n|Segmento: ${this.segmento}`}\n===============================`);
   }
+}
 
   
-  }
+    
   
